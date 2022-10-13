@@ -23,12 +23,14 @@ int main()
             break;
         case 2:
             if (n % 2 == 0) cout << "n is even number." << endl;
-                else cout << "n is odd number." << endl; 
+            else cout << "n is odd number." << endl; 
+
             break;
         case 3: 
         {
             int sum = 0;
-            for (int i = 1; i <= n; ++i) sum += i;
+            for (int i = 1; i <= n; ++i) 
+                sum += i;
             cout << "Sum of all numbers <= n is " << sum << endl;
             break;
         }

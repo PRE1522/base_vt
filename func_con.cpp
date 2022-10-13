@@ -9,7 +9,7 @@ void my_swap(int* x, int* y)
     *y = tmp;
 }
 
-void my_sort(int* a, const int n) 
+void my_sort(int* a, const int &n) 
 {
     for (int i = 0; i < n-1; ++i)
     {
@@ -25,7 +25,7 @@ void my_sort(int* a, const int n)
     cout << endl;
 }
 
-int count_even(const int *a, const int n) 
+int count_even(const int *a, const int &n) 
 {
     int res = 0;
     for (int i = 0; i < n; ++i) 

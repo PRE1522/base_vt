@@ -2,43 +2,38 @@
 
 using namespace std;
 
-void sum(int a, int b) 
+void fun1(int a) 
 {
-    cout << "sum of a,b is : " << a+b << endl;
+    a = a + 5;
 }
 
-void inc5(int &a, int &b) 
+void fun2(int &a) 
 {
-    a += 5;
-    b += 5;
+    a = a + 5;
 }
 
-void swap(int *a, int *b) 
+void fun3(int *a) 
 {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
+    *a = *a + 10;
 }
 
 int main() 
 {
-    int number1, number2;
-    cout << "Enter number 1: ";
-    cin >> number1;
-    cout << "Enter number 2: ";
-    cin >> number2;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
 
-    sum(number1, number2);
+    int number = num;
+    fun1(number);
+    cout << "number after use fun1: " << number << endl;
+    
+    number = num;
+    fun2(number);
+    cout << "number after use fun2: " << number << endl;
 
-    inc5(number1, number2);
-    cout << "After inc 5:" << endl;
-    cout << "number 1: " << number1 << endl;
-    cout << "number 2: " << number2 << endl;
-
-    swap(&number1, &number2);
-    cout << "After swap:" << endl;
-    cout << "number 1: " << number1 << endl;
-    cout << "number 2: " << number2 << endl;
+    number = num;
+    fun3(&number);
+    cout << "number after use fun3: " << number << endl;
     
     return 0;
 }
