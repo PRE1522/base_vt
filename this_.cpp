@@ -5,21 +5,23 @@ using namespace std;
 class BunDau
 {
     private:
-        int count = 0;
-        int price = 0;
+        int count;
+        int price;
     public: 
         BunDau()
         {
+            this->count = 0;
+            this->price = 0;
         }
 
-        void set_count(int x)
+        void set_count(int count)
         {
-            count = x;
+            this->count = count;
         }
 
-        void set_price(int x)
+        void set_price(int price)
         {
-            price = x;
+            this->price = price;
         }
 
         void get_count() const
