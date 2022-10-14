@@ -1,21 +1,22 @@
 #include <iostream>
+#define maxn 1000
 
 using namespace std;
 
-void my_swap(int* x, int* y) 
+void my_swap(int &x, int &y) 
 {
-    int tmp = *x;
-    *x = *y;
-    *y = tmp;
+    int tmp = x;
+    x = y;
+    y = tmp;
 }
 
-void my_sort(int* a, const int &n) 
+void my_sort(int a[], const int &n) 
 {
     for (int i = 0; i < n-1; ++i)
     {
         for (int j = i+1; j < n; ++j)
         {
-            if (a[i] > a[j]) my_swap(a+i, a+j);
+            if (a[i] > a[j]) my_swap(a[i], a[j]);
         }
     }
     
@@ -25,7 +26,7 @@ void my_sort(int* a, const int &n)
     cout << endl;
 }
 
-int count_even(const int *a, const int &n) 
+int count_even(const int a[], const int &n) 
 {
     int res = 0;
     for (int i = 0; i < n; ++i) 
@@ -33,12 +34,14 @@ int count_even(const int *a, const int &n)
     return res;
 }
 
+int n;
+int a[maxn];
+
 int main() 
 {
-    int n;
     cin >> n;
-    int *a = new int[n];
-    for (int i = 0; i < n; ++i) cin >> a[i];
+    for (int i = 0; i < n; ++i) 
+        cin >> a[i];
 
     cout << "Array a after sort descending: ";
     my_sort(a,n);

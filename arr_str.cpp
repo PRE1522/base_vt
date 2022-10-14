@@ -1,29 +1,59 @@
 #include <iostream>
-#include <bits/stdc++.h>
-#define oo 1000
-
+#include <cstring>
+#include <string>
+ 
 using namespace std;
 
-int n;
-string s[oo];
-
-int main() 
+void to_lower(char s[])
 {
-    string x;
-    getline(cin, x);
-    n = atoi(x.c_str());    
-    for (int  i = 0; i < n; ++i) 
+    for (int i = 0; s[i] != '\0'; i++)
     {
-        getline(cin, s[i]);
-        for (int j = 0; j < s[i].length(); ++j) 
-            s[i][j] = toupper(s[i][j]);
+        if (s[i] >= 'A' && s[i] <= 'Z')
+        {
+            s[i] = s[i] + 32;
+        }
     }
-    sort(s,s+n);
+}
+ 
+void to_upper(char s[])
+{
+    for (int i = 0; s[i] != '\0'; i++)
+    {
+        if (s[i] >= 'a' && s[i] <= 'z')
+        {
+            s[i] = s[i] - 32;
+        }
+    }
+}
+ 
+void to_title(char str[])
+{
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z') str[i] += 32;
+        if (str[i - 1] == ' ' || i == 0)
+        {
+            if (str[i] >= 'a' && str[i] <= 'z')
+                str[i] = str[i] - 32;
+        }
+    }
+}
+ 
+int main()
+{
+    printf("\nEnter a string : ");
+    string x; 
+    getline(cin, x);
+    char s[100];
+    strcpy(s, x.c_str());
 
-    for (int  i = 0; i < n; ++i) 
-        cout << s[i] << endl;
+    to_lower(s);
+    printf("\nString in Lowercase = %s\n", s);
 
+    to_upper(s);
+    printf("\nString in Uppercase = %s\n", s);
+    
+    to_title(s);
+    printf("\nString in Titlecase = %s\n", s);
     return 0;
 }
-
-// input list name, output list name toupper order by ascending 
